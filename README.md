@@ -69,7 +69,7 @@ And that's it! when you visit *USER_NAME*.github.io/*REPO_NAME* you should see y
 ```
 6. You can update the `name` field for your project.
 7. From the example you can see it supports different arcitechures, it will automatically select the appropriate one based on the device thats plugged in. For now remove the entry for the chip you will not be using. (make sure to remove the `,` too!)
-8. If you are using the ESP32, set the `improv` filed to `false`
+8. If you are using the ESP32, set the `improv` field to `false`
 
 ## Getting the image(s) to flash
 
