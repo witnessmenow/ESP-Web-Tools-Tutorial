@@ -82,19 +82,28 @@ NOTE: Only the bin files under the temporary Arduino folder will change when you
 3. Program your board with the project you want to create the flasher for.
 4. In the logs scroll up to top , there should be a line with **esptool**, mine looked like this:
 ```
-/Users/brian/Library/Arduino15/packages/esp32/tools/esptool_py/3.0.0/esptool --chip esp32 --port /dev/cu.SLAB_USBtoUART --baud 921600 --before default_reset --after hard_reset write_flash -z --flash_mode dio --flash_freq 80m --flash_size detect 0xe000 /Users/brian/Library/Arduino15/packages/esp32/hardware/esp32/1.0.6/tools/partitions/boot_app0.bin 0x1000 /Users/brian/Library/Arduino15/packages/esp32/hardware/esp32/1.0.6/tools/sdk/bin/bootloader_qio_80m.bin 0x10000 /var/folders/tn/lk3_b69x7kg06xgj6tc4x2000000gn/T/arduino_build_379859/BlinkREgular.ino.bin 0x8000 /var/folders/tn/lk3_b69x7kg06xgj6tc4x2000000gn/T/arduino_build_379859/BlinkREgular.ino.partitions.bin 
+/Users/brian/Library/Arduino15/packages/esp32/tools/esptool_py/3.0.0/esptool --chip esp32 
+--port /dev/cu.SLAB_USBtoUART --baud 921600 --before default_reset --after hard_reset write_flash 
+-z --flash_mode dio --flash_freq 80m --flash_size detect 
+0xe000 /Users/brian/Library/Arduino15/packages/esp32/hardware/esp32/1.0.6/tools/partitions/boot_app0.bin 
+0x1000 /Users/brian/Library/Arduino15/packages/esp32/hardware/esp32/1.0.6/tools/sdk/bin/bootloader_qio_80m.bin 
+0x10000 /var/folders/tn/lk3_b69x7kg06xgj6tc4x2000000gn/T/arduino_build_379859/BlinkREgular.ino.bin 
+0x8000 /var/folders/tn/lk3_b69x7kg06xgj6tc4x2000000gn/T/arduino_build_379859/BlinkREgular.ino.partitions.bin 
 
 ```
 5. This particular example contains 4 bin files and their offsets. The offset comes before the bin address, so the 4 above looks like this extracted out
-|Offset(hex)|Bin Location|
-|-----------|------------|
+
+| Offset(hex) | Bin Location |
+| ----------- | ------------ |
 |0xe000|/Users/brian/Library/Arduino15/packages/esp32/hardware/esp32/1.0.6/tools/partitions/boot_app0.bin|
 |0x1000|/Users/brian/Library/Arduino15/packages/esp32/hardware/esp32/1.0.6/tools/sdk/bin/bootloader_qio_80m.bin|
 |0x10000|/var/folders/tn/lk3_b69x7kg06xgj6tc4x2000000gn/T/arduino_build_379859/BlinkREgular.ino.bin|
 |0x8000|/var/folders/tn/lk3_b69x7kg06xgj6tc4x2000000gn/T/arduino_build_379859/BlinkREgular.ino.partitions.bin|
+
 6. The Manifest file expexts the offset in decimal, so [convert the hex to decimal](https://www.rapidtables.com/convert/number/hex-to-decimal.html)
-|Offset(hex)|Offset(decimal)|Bin Location|
-|-----------|---------------|------------|
+
+| Offset(hex) | Offset(decimal) | Bin Location |
+| ----------- | --------------- | ------------ |
 |0xe000|57344|/Users/brian/Library/Arduino15/packages/esp32/hardware/esp32/1.0.6/tools/partitions/boot_app0.bin|
 |0x1000|4096|/Users/brian/Library/Arduino15/packages/esp32/hardware/esp32/1.0.6/tools/sdk/bin/bootloader_qio_80m.bin|
 |0x10000|65536|/var/folders/tn/lk3_b69x7kg06xgj6tc4x2000000gn/T/arduino_build_379859/BlinkREgular.ino.bin|
