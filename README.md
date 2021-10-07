@@ -75,6 +75,8 @@ And that's it! when you visit *USER_NAME*.github.io/*REPO_NAME* you should see y
 
 This was actually the part I found the hardest, just because I was completely unfamilar what happens once you cick "Upload"!
 
+### For Arduino IDE
+
 NOTE: Only the bin files under the temporary Arduino folder will change when you update the sketch, you can re-use the other ones.
 
 1. In the Arduino IDE, click **File** -> **Preferences**
@@ -108,7 +110,11 @@ NOTE: Only the bin files under the temporary Arduino folder will change when you
 |0x1000|4096|/Users/brian/Library/Arduino15/packages/esp32/hardware/esp32/1.0.6/tools/sdk/bin/bootloader_qio_80m.bin|
 |0x10000|65536|/var/folders/tn/lk3_b69x7kg06xgj6tc4x2000000gn/T/arduino_build_379859/BlinkREgular.ino.bin|
 |0x8000|32768|/var/folders/tn/lk3_b69x7kg06xgj6tc4x2000000gn/T/arduino_build_379859/BlinkREgular.ino.partitions.bin|
- 
+
+### For Platformio
+
+[This is untested by me, but it looks right](https://community.platformio.org/t/export-of-binary-firmware-files-for-esp32-download-tool/9253/2)
+
 ## Updating the manifest and adding files
 
 1. Copy each of the bin files from the previous step to the `test` folder we created earlier (so it should be beside the `manifest.json`)
